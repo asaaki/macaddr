@@ -23,7 +23,7 @@ def run_tests!(which = nil)
   test_dir = File.join(This.dir, "test")
   test_glob ||= File.join(test_dir, "#{ which }/**_test.rb")
   test_rbs = Dir.glob(test_glob).sort
-        
+
   div = ('=' * 119)
   line = ('-' * 119)
 
@@ -43,7 +43,7 @@ def run_tests!(which = nil)
 
     status = $?.exitstatus
 
-    if status.zero? 
+    if status.zero?
       say("@#{ testno } <= ", :bold => true, :color => :white, :method => :print)
       say("SUCCESS", :color => :green, :bold => true)
     else
@@ -62,7 +62,7 @@ task :gemspec do
   ignore_directories = ['pkg']
   ignore_files = ['test/log']
 
-  shiteless = 
+  shiteless =
     lambda do |list|
       list.delete_if do |entry|
         next unless test(?e, entry)
@@ -112,7 +112,7 @@ task :gemspec do
     end
   end
 
-  template = 
+  template =
     if test(?e, 'gemspec.erb')
       Template{ IO.read('gemspec.erb') }
     else
@@ -130,7 +130,7 @@ task :gemspec do
 
             spec.files =\n<%= files.sort.pretty_inspect %>
             spec.executables = <%= executables.inspect %>
-            
+
             spec.require_path = "lib"
 
             spec.test_files = <%= test_files.inspect %>
@@ -187,7 +187,7 @@ task :readme do
     samples << Util.indent(`#{ cmd } 2>&1`, 4) << "\n"
   end
 
-  template = 
+  template =
     if test(?e, 'readme.erb')
       Template{ IO.read('readme.erb') }
     else
