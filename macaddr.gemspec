@@ -3,14 +3,13 @@
 
 Gem::Specification::new do |spec|
   spec.name = "macaddr"
-  spec.version = "1.6.1"
+  spec.version = "1.6.2"
   spec.platform = Gem::Platform::RUBY
   spec.summary = "macaddr"
   spec.description = "description: macaddr kicks the ass"
 
   spec.files =
 ["Gemfile",
- "Gemfile.lock",
  "LICENSE",
  "README",
  "Rakefile",
@@ -31,9 +30,9 @@ Gem::Specification::new do |spec|
 
   spec.test_files = nil
 
-
+  
     spec.add_dependency(*["systemu", "~> 2.5.0"])
-
+  
 
   spec.extensions.push(*[])
 
